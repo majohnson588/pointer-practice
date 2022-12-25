@@ -27,4 +27,12 @@ int main()
     printf("%llu\n", sizeof(&arr[0] + 1));//4/8 &arr[0] + 1 是数组第二个元素的地址
     //%llu = long long unsigned(在64位平台正常运行)
     
+    printf("%d\n",strlen(arr));//随机值，arr数组中没有\0,所以strlen函数会继续往后找\0,统计\0之前出现的字符个数
+    printf("%d\n",strlen(arr + 0));//随机值，arr+0还是数组首元素的地址
+    //printf("%d\n",strlen(*arr);//err - arr是数组首元素的地址，*arr是数组的首元素，'a'-97
+    //printf("%d\n",strlen(arr[1]);//err - 'b' - 98
+    printf("%d\n",strlen(&arr);//随机值
+    printf("%d\n",strlen(&arr + 1);//随机值
+    printf("%D\n",strlen(&arr[0] + 1));//随机值
+    return 0;、
 }
