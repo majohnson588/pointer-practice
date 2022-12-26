@@ -34,5 +34,23 @@ int main()
     printf("%d\n",strlen(&arr);//随机值
     printf("%d\n",strlen(&arr + 1);//随机值
     printf("%D\n",strlen(&arr[0] + 1));//随机值
-    return 0;、
+    
+    char*p = "abcdef";
+    
+    printf("%d\n", strlen(p));//6
+    printf("%d\n", strlen(p + 1));//5 从b的位置开始向后数字符
+    printf("%d\n", strlen(*p));//err
+    printf("%d\n", strlen(p[0]));//err
+    printf("%d\n", strlen(&p));//随机值
+    printf("%d\n", strlen(&p + 1));//随机值
+    printf("%d\n", strlen(&p[0] + 1));//5 从b的位置往后数字符
+    
+    printf("%d\n", sizeof(p));//4/8 p是指针变量，计算的是指针变量的大小
+    printf("%d\n", sizeof(p + 1));//4/8 p+1是‘b’的地址
+    printf("%d\n", sizeof(*p));//1 - *p其实就是'a'
+    printf("%d\n", sizeof(p[0]));1 - p[0]->*(p+0)->*p
+    printf("%d\n", sizeof(&p));//4/8 &p 是指针变量p在内存中的地址
+    printf("%d\n", sizeof(&p + 1));//4/8 - &p+1是跳过p之后的地址
+    printf("%d\n", sizeof(&p[0] + 1));//4/8 &p[0]是'a'的地址，&p[0]就是b的地址
+    return 0;
 }
