@@ -169,3 +169,43 @@ Practice5:
 }
 output:
 4,FFFFFFFC
+
+Peactice6:
+#include <stdio.h>
+int main()
+{
+    int aa[2][5] = { 1,2,3,4,5,6,7,8,9,10 };
+    
+    int* ptr1 = (int*)(&aa + 1);//&aa取出的是整个二维数组,+1跳过整个二维数组
+    int* ptr2 = (int*)(*(aa + 1));//aa为首行地址，aa+1为第二行地址
+    
+    printf("%d,%d", *(ptr1 - 1), *(ptr2 - 1));
+    return 0;
+}
+output:
+10，5
+
+Practice7:
+int main()
+{
+    char* a[] = { "work","at","alibaba" };//实际上字符指针存的是“w”，“a”，“a”
+    char** pa = a;
+    pa++;
+    printf("%s\n", *pa);//给的是首字母地址，可以打印一个字符串
+    return 0;
+}
+output:
+at
+
+Practice8:
+int main()
+{
+    char* c[] = { "ENTER","NEW","POINT","FIRST" };
+    char** cp[] = { c + 3,c + 2,c + 1,c };
+    char*** cpp = cp;
+    printf("%s\n", **++cpp);
+    printf("%s\n",*-- * ++cpp + 3);
+    printf("%s\n",*cpp[-2] + 3);
+    printf("%s\n", cpp[-1][-1] + 1);
+    return 0;
+}
